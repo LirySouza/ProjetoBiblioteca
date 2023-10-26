@@ -36,7 +36,7 @@ namespace ProjetoBiblioteca.Controllers
 
                 return View(genero);
             }
-
+        }
         // GET: Genero/Details/5
         public async Task<IActionResult> Details(int? id)
         {
