@@ -9,23 +9,23 @@ using ProjetoBiblioteca.Models;
 
 namespace ProjetoBiblioteca.Controllers
 {
-    public class DatasController : Controller
+    public class DataController : Controller
     {
         private readonly Contexto _context;
 
-        public DatasController(Contexto context)
+        public DataController(Contexto context)
         {
             _context = context;
         }
 
-        // GET: Datas
+        // GET: Data
         public async Task<IActionResult> Index()
         {
-            var contexto = _context.Datas.Include(d => d.Livro);
+            var contexto = _context.Datas.Include(d => d.Aluno).Include(d => d.Livro);
             return View(await contexto.ToListAsync());
         }
 
-        // GET: Datas/Details/5
+        // GET: Data/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Datas == null)
@@ -34,6 +34,7 @@ namespace ProjetoBiblioteca.Controllers
             }
 
             var datas = await _context.Datas
+                .Include(d => d.Aluno)
                 .Include(d => d.Livro)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (datas == null)
@@ -44,19 +45,20 @@ namespace ProjetoBiblioteca.Controllers
             return View(datas);
         }
 
-        // GET: Datas/Create
+        // GET: Data/Create
         public IActionResult Create()
         {
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id");
             ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id");
             return View();
         }
 
-        // POST: Datas/Create
+        // POST: Data/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LivroId,DataRetirada,DataDevolucao")] Datas datas)
+        public async Task<IActionResult> Create([Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao")] Datas datas)
         {
             if (ModelState.IsValid)
             {
@@ -64,11 +66,12 @@ namespace ProjetoBiblioteca.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
             ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
             return View(datas);
         }
 
-        // GET: Datas/Edit/5
+        // GET: Data/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Datas == null)
@@ -81,16 +84,17 @@ namespace ProjetoBiblioteca.Controllers
             {
                 return NotFound();
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
             ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
             return View(datas);
         }
 
-        // POST: Datas/Edit/5
+        // POST: Data/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LivroId,DataRetirada,DataDevolucao")] Datas datas)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao")] Datas datas)
         {
             if (id != datas.Id)
             {
@@ -117,11 +121,12 @@ namespace ProjetoBiblioteca.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
             ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
             return View(datas);
         }
 
-        // GET: Datas/Delete/5
+        // GET: Data/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Datas == null)
@@ -130,6 +135,7 @@ namespace ProjetoBiblioteca.Controllers
             }
 
             var datas = await _context.Datas
+                .Include(d => d.Aluno)
                 .Include(d => d.Livro)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (datas == null)
@@ -140,7 +146,7 @@ namespace ProjetoBiblioteca.Controllers
             return View(datas);
         }
 
-        // POST: Datas/Delete/5
+        // POST: Data/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
