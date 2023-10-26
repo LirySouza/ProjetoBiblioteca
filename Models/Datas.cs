@@ -11,12 +11,12 @@ namespace ProjetoBiblioteca.Models
 
         public int Id { get; set; }
 
-        [ForeignKey("AlunoId")]
+        [ForeignKey("Aluno")]
         public int AlunoId { get; set; }
 
         public Aluno? Aluno { get; set; }
 
-        [ForeignKey("LivroId")]
+        [ForeignKey("Livro")]
 
         public int LivroId { get; set; }
 
