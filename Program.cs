@@ -9,8 +9,8 @@ builder.Services.AddControllersWithViews();
 /*builder.Services.AddDbContext<Contexto> //Liriany
    (options => options.UseSqlServer("Data Source=SB-1490643\\SQLSENAI;Initial Catalog = PojetoBiblioteca;Integrated Security = True;TrustServerCertificate = True"))*/;
 
-builder.Services.AddDbContext<Contexto> //Manuela
-   (options => options.UseSqlServer("Data Source=SB-1490633\\SQLSENAI;Initial Catalog = PojetoBiblioteca;Integrated Security = True;TrustServerCertificate = True"));
+/*builder.Services.AddDbContext<Contexto> //Manuela
+   (options => options.UseSqlServer("Data Source=SB-1490633\\SQLSENAI;Initial Catalog = PojetoBiblioteca;Integrated Security = True;TrustServerCertificate = True"));*/
 
 /*builder.Services.AddDbContext<Contexto> //Kauan
    (options => options.UseSqlServer("Data Source=SB-1490634\\SQLSENAI;Initial Catalog = PojetoBiblioteca;Integrated Security = True;TrustServerCertificate = True"))*/;
