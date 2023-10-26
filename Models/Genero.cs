@@ -15,7 +15,5 @@ namespace ProjetoBiblioteca.Models
         [Display(Name = "Nome do Gênero")]
 
         public string Nome { get; set; } = string.Empty;
-
-
     }
 }
