@@ -30,3 +30,10 @@ body {
     background-color: #94BFDE;
 
 }
+.logo{
+    height:65px;
+    width:50px;
+}
+.navbar {
+    background-color:#94BFDE !important;
+}
