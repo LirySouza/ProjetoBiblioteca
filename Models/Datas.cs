@@ -11,7 +11,7 @@ namespace ProjetoBiblioteca.Models
 
         public int Id { get; set; }
 
-        [ForeignKey("Aluno")]
+        [ForeignKey("AlunoId")]
         public int AlunoId { get; set; }
 
         public Aluno? Aluno { get; set; }
