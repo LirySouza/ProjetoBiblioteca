@@ -48,8 +48,8 @@ namespace ProjetoBiblioteca.Controllers
         // GET: Data/Create
         public IActionResult Create()
         {
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id");
-            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id");
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Nome");
+            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Nome");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace ProjetoBiblioteca.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
-            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Nome", datas.AlunoId);
+            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Nome", datas.LivroId);
             return View(datas);
         }
 
@@ -84,8 +84,8 @@ namespace ProjetoBiblioteca.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
-            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Nome", datas.AlunoId);
+            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Nome", datas.LivroId);
             return View(datas);
         }
 
@@ -121,8 +121,8 @@ namespace ProjetoBiblioteca.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Id", datas.AlunoId);
-            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Id", datas.LivroId);
+            ViewData["AlunoId"] = new SelectList(_context.Alunos, "Id", "Nome", datas.AlunoId);
+            ViewData["LivroId"] = new SelectList(_context.Livro, "Id", "Nome", datas.LivroId);
             return View(datas);
         }
 
