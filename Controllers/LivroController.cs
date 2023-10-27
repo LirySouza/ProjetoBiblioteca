@@ -48,7 +48,7 @@ namespace ProjetoBiblioteca.Controllers
         // GET: Livro/Create
         public IActionResult Create()
         {
-            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Id");
+            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace ProjetoBiblioteca.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Id", livro.GeneroId);
+            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", livro.GeneroId);
             return View(livro);
         }
 
@@ -82,7 +82,7 @@ namespace ProjetoBiblioteca.Controllers
             {
                 return NotFound();
             }
-            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Id", livro.GeneroId);
+            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", livro.GeneroId);
             return View(livro);
         }
 
@@ -118,7 +118,7 @@ namespace ProjetoBiblioteca.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Id", livro.GeneroId);
+            ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", livro.GeneroId);
             return View(livro);
         }
 
