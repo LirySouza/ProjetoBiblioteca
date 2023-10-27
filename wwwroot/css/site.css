@@ -1,10 +1,14 @@
 html {
   font-size: 14px;
+  border:0px;
+  margin:0px;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    border:0px;
+    margin:0px;
   }
 }
 
@@ -14,5 +18,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    border: 0px;
+    margin: 0px;
+}
+.imgfundo{
+    width: 100%;
+    margin-top: 135px;
+   
+}
+.footer {
+    background-color: #94BFDE;
+
 }
