@@ -37,3 +37,8 @@ body {
 .navbar {
     background-color:#94BFDE !important;
 }
+.livro{
+    width:100%;
+    height:200px;
+    margin-left: 960px;
+}
