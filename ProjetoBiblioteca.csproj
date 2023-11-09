@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Datas\**" />
+    <Content Remove="Views\Datas\**" />
+    <EmbeddedResource Remove="Views\Datas\**" />
+    <None Remove="Views\Datas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\DatasController.cs" />
+    <Compile Remove="Models\Datas.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\livros-removebg-preview.png" />
   </ItemGroup>
 

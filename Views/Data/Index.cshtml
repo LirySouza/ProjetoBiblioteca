@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProjetoBiblioteca.Models.Data>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn-primary" asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Aluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRetirada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDevolucao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Devolvido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaoDevolvido)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Livro.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRetirada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDevolucao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Devolvido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaoDevolvido)
+            </td>
+            <td>
+                    <a class="btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="btn-primary" asp-action="Details" asp-route-id="@item.Id">Detailhes</a> |
+                    <a class="btn-primary" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -16,7 +16,7 @@ namespace ProjetoBiblioteca.Models
         public DbSet<Livro> Livro  { get; set; }
 
 
-        public DbSet<Datas> Datas { get; set; }
+        public DbSet<Data> Datas { get; set; }
 
     }
 

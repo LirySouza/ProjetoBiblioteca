@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoBiblioteca.Models
 {
-    [Table("Datas")]
-    public class Datas
+    [Table("Data")]
+    public class Data
     {
-        [Column( "DataId" ) ]
-        [Display( Name = "Código da Data" ) ]
+        [Column("DataId")]
+        [Display(Name = "Código da Data")]
 
         public int Id { get; set; }
 

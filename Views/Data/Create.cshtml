@@ -1,0 +1,56 @@
+﻿@model ProjetoBiblioteca.Models.Data
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastar Novo</h1>
+
+<h4>Data</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Aluno" class="control-label"></label>
+                <select asp-for="Aluno" class ="form-control" asp-items="ViewBag.AlunoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livro" class="control-label"></label>
+                <select asp-for="Livro" class ="form-control" asp-items="ViewBag.LivroId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataRetirada" class="control-label"></label>
+                <input asp-for="DataRetirada" class="form-control" />
+                <span asp-validation-for="DataRetirada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDevolucao" class="control-label"></label>
+                <input asp-for="DataDevolucao" class="form-control" />
+                <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Devolvido" /> @Html.DisplayNameFor(model => model.Devolvido)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NaoDevolvido" /> @Html.DisplayNameFor(model => model.NaoDevolvido)
+                </label>
+            </div>
+            <div style="display:flex">
+                <div class="form-group">
+                    <input  type="submit" value="Criar" class="btn-primary" />
+                </div>
+                <a style="margin-left:15px" class="btn-primary" asp-action="Index">Voltar à Lista</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
