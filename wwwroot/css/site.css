@@ -37,11 +37,44 @@ body {
 .navbar {
     background-color:#94BFDE !important;
 }
-.livro{
-    width:100%;
-    height:200px;
+.livro {
+    width: 100%;
+    height: 200px;
     margin-left: 960px;
 }
 .btn-primary {
-    background-color: #BEE1EA !important;
+    background-color: #94BFDE !important;
+    text-decoration:none;
+    border:0.5px solid blue;
+    padding:5px;
+    border-radius:5px;
+}
+.btn-deletar {
+    background-color: #D80F00 !important;
+    color:white;
+    text-decoration: none;
+    border: 0.5px solid blue;
+    padding: 5px;
+    border-radius: 5px;
+}
+.btn-editar {
+    background-color: #576A78 !important;
+    color: white;
+    text-decoration: none;
+    border: 0.5px solid blue;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-detalhes {
+    background-color: #95A2AB !important;
+    color: white;
+    text-decoration: none;
+    border: 0.5px solid blue;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
