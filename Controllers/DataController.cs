@@ -19,10 +19,25 @@ namespace ProjetoBiblioteca.Controllers
         }
 
         // GET: Data
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string pesquisa)
         {
-            var contexto = _context.Datas.Include(d => d.Aluno).Include(d => d.Livro);
-            return View(await contexto.ToListAsync());
+            //var contexto = _context.Datas.Include(d => d.Aluno).Include(d => d.Livro);
+            //return View(await contexto.ToListAsync());
+
+            if (pesquisa == null)
+            {
+                return _context.Datas.Include(d => d.Aluno).Include(d => d.Livro) != null ?
+                          View(await _context.Datas.Include(d => d.Aluno).Include(d => d.Livro).ToListAsync()) :
+                          Problem("Entity set 'Contexto.Aluno'  is null.");
+            }
+            else
+            {
+                var aluno =
+                    _context.Datas.Include(d => d.Aluno).Include(d => d.Livro)
+                    .Where(x => x.Aluno.Nome.Contains(pesquisa) || x.Livro.Nome.Contains(pesquisa));                  
+
+                return View(aluno);
+            }
         }
 
         // GET: Data/Details/5
