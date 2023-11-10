@@ -25,7 +25,7 @@ namespace ProjetoBiblioteca.Controllers
             {
                 return _context.Alunos != null ?
                           View(await _context.Alunos.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Alunos'  is null.");
+                          Problem("Entity set 'Contexto.Aluno'  is null.");
             }
             else
             {
