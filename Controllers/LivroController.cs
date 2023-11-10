@@ -23,14 +23,14 @@ namespace ProjetoBiblioteca.Controllers
         {
             if (pesquisa == null)
             {
-                return _context.Livro != null ?
-                       View(await _context.Livro.ToListAsync()) :
+                return _context.Livro.Include(l => l.Genero) != null ?
+                       View(await _context.Livro.Include(l => l.Genero).ToListAsync()) :
                        Problem("Entity set 'Contexto.Genero'  is null.");
             }
             else
             {
                 var livro =
-                    _context.Livro
+                    _context.Livro.Include(l => l.Genero)
                     .Where(x => x.Nome.Contains(pesquisa))
                     .OrderBy(x => x.Nome);
 
