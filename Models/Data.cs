@@ -17,7 +17,6 @@ namespace ProjetoBiblioteca.Models
         public Aluno? Aluno { get; set; }
 
         [ForeignKey("Livro")]
-
         public int LivroId { get; set; }
 
         public Livro? Livro { get; set; }
@@ -35,9 +34,6 @@ namespace ProjetoBiblioteca.Models
         [Column("Devolvido")]
         [Display(Name = "Devolvido")]
         public bool Devolvido { get; set; }
-
-        [Column("NaoDevolvido")]
-        [Display(Name = " Não Devolvido")]
-        public bool NaoDevolvido { get; set; }
+       
     }
 }

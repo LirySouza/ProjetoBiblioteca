@@ -21,6 +21,5 @@ namespace ProjetoBiblioteca.Models
 
         public int Rm { get; set; }
 
-
     }
 }

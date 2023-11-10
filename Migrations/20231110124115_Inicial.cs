@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjetoBiblioteca.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoInicial : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,21 +63,23 @@ namespace ProjetoBiblioteca.Migrations
                 name: "Data",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    DataId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AlunoId = table.Column<int>(type: "int", nullable: true),
+                    AlunoId = table.Column<int>(type: "int", nullable: false),
                     LivroId = table.Column<int>(type: "int", nullable: false),
                     DataRetirada = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Devolvido = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Data", x => x.Id);
+                    table.PrimaryKey("PK_Data", x => x.DataId);
                     table.ForeignKey(
                         name: "FK_Data_Aluno_AlunoId",
                         column: x => x.AlunoId,
                         principalTable: "Aluno",
-                        principalColumn: "AlunoId");
+                        principalColumn: "AlunoId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Data_Livro_LivroId",
                         column: x => x.LivroId,

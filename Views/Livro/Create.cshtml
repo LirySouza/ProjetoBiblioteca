@@ -28,6 +28,10 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                <a class="btn-primary" asp-action="Index">Voltar à Lista</a>
+            </div>
+            <div>
+                
             </div>
         </form>
         <div style="margin-top:33px;">
@@ -36,9 +40,7 @@
     </div>
 </div>
 
-<div>
-    <a class="btn-primary" asp-action="Index">Voltar à Lista</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
