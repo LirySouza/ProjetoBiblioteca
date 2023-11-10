@@ -12,8 +12,8 @@ using ProjetoBiblioteca.Models;
 namespace ProjetoBiblioteca.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20231027130349_CriacaoDatas")]
-    partial class CriacaoDatas
+    [Migration("20231110124115_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace ProjetoBiblioteca.Migrations
                     b.ToTable("Aluno");
                 });
 
-            modelBuilder.Entity("ProjetoBiblioteca.Models.Datas", b =>
+            modelBuilder.Entity("ProjetoBiblioteca.Models.Data", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,6 +68,10 @@ namespace ProjetoBiblioteca.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DataRetirada");
 
+                    b.Property<bool>("Devolvido")
+                        .HasColumnType("bit")
+                        .HasColumnName("Devolvido");
+
                     b.Property<int>("LivroId")
                         .HasColumnType("int");
 
@@ -77,7 +81,7 @@ namespace ProjetoBiblioteca.Migrations
 
                     b.HasIndex("LivroId");
 
-                    b.ToTable("Datas");
+                    b.ToTable("Data");
                 });
 
             modelBuilder.Entity("ProjetoBiblioteca.Models.Genero", b =>
@@ -127,7 +131,7 @@ namespace ProjetoBiblioteca.Migrations
                     b.ToTable("Livro");
                 });
 
-            modelBuilder.Entity("ProjetoBiblioteca.Models.Datas", b =>
+            modelBuilder.Entity("ProjetoBiblioteca.Models.Data", b =>
                 {
                     b.HasOne("ProjetoBiblioteca.Models.Aluno", "Aluno")
                         .WithMany()

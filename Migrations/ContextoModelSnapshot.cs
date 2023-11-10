@@ -72,10 +72,6 @@ namespace ProjetoBiblioteca.Migrations
                     b.Property<int>("LivroId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("NaoDevolvido")
-                        .HasColumnType("bit")
-                        .HasColumnName("NaoDevolvido");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AlunoId");

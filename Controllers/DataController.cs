@@ -58,7 +58,7 @@ namespace ProjetoBiblioteca.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao,Devolvido,NaoDevolvido")] Data data)
+        public async Task<IActionResult> Create([Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao,Devolvido")] Data data)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace ProjetoBiblioteca.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao,Devolvido,NaoDevolvido")] Data data)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AlunoId,LivroId,DataRetirada,DataDevolucao,Devolvido")] Data data)
         {
             if (id != data.Id)
             {
